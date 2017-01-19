@@ -1,66 +1,549 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Super Chat temps réel !</title>
-        <style>
-            #zone_chat strong {
-                color: white;
-                background-color: black;
-                padding: 2px;
-            }
-        </style>
-    </head>
- 
-    <body>
-        <h1>Le super Chat temps réel !</h1>
+<head>
+  <meta charset="utf-8" />
+  <title>Jupiter Impact !</title>
 
-        <form action="/" method="post" id="formulaire_chat">
-            <input type="text" name="message" id="message" placeholder="Votre message..." size="50" autofocus />
-            <input type="submit" id="envoi_message" value="Envoyer" />
-        </form>
+                                            <!-- CSS -->
 
-        <section id="zone_chat">
-            
-        </section>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+  <style>
 
 
-        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-        <script src="/socket.io/socket.io.js"></script>
-        <script>
+    html {
+      height: 100%;
+      overflow: hidden;
+    }
+    .Callisto {
+      background-color: red;
+      position: absolute;
+      width: 8%;
+      height: 15%;
+      border-radius: 50%;
+      top: 76%;
+      left: 27%;
+      font-size: 18px;
+      opacity: 0.1;
+      cursor: crosshair;
+      background-image: radial-gradient(closest-side ellipse at center, white, red);
+    }
 
-            // Connexion à socket.io
-            var socket = io.connect('http://localhost:8080');
+    .Callisto:hover { opacity:0.5;}
 
-            // On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
-            var pseudo = prompt('Quel est votre pseudo ?');
-            socket.emit('nouveau_client', pseudo);
-            document.title = pseudo + ' - ' + document.title;
+    .Europa {
+      background-color: green;
+      position: absolute;
+      width: 8%;
+      height: 15%;
+      border-radius: 50%;
+      top: 31%;
+      left: 43.55%;
+      opacity: 0.1;
+      cursor: crosshair;
+      background-image: radial-gradient(closest-side ellipse at center, white, green);
+    }
 
-            // Quand on reçoit un message, on l'insère dans la page
-            socket.on('message', function(data) {
-                insereMessage(data.pseudo, data.message)
-            })
+    .Europa:hover { opacity:0.5;}
 
-            // Quand un nouveau client se connecte, on affiche l'information
-            socket.on('nouveau_client', function(pseudo) {
-                $('#zone_chat').prepend('<p><em>' + pseudo + ' a rejoint le Chat !</em></p>');
-            })
+      .Ganymede{
+      background-color: blue;
+      position: absolute;
+      width: 8%;
+      height: 15%;
+      border-radius: 50%;
+      top: 67%;
+      left: 43.55%;
+      opacity: 0.1;
+      cursor: crosshair;
+      background-image: radial-gradient(closest-side ellipse at center, white, blue);
+    }
 
-            // Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page
-            $('#formulaire_chat').submit(function () {
-                var message = $('#message').val();
-                socket.emit('message', message); // Transmet le message aux autres
-                insereMessage(pseudo, message); // Affiche le message aussi sur notre page
-                $('#message').val('').focus(); // Vide la zone de Chat et remet le focus dessus
-                return false; // Permet de bloquer l'envoi "classique" du formulaire
-            });
-            
-            // Ajoute un message dans la page
-            function insereMessage(pseudo, message) {
-                $('#zone_chat').prepend('<p><strong>' + pseudo + '</strong> ' + message + '</p>');
-            }
-        </script>
-    </body>
+    .Ganymede:hover { opacity:0.5;}
+
+    #zone_chat strong {
+      color: white;
+      background-color: black;
+    }
+    body {
+      background: black url('http://imageshack.com/a/img924/7558/OTIPkk.jpg') no-repeat center;
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+      height: 100%;
+    }
+    #team {
+      display: none;
+      height: 30%;
+      width: 15%;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5em;
+      color: orange;
+      position: relative;
+      float: right;
+      z-index: 0;
+      top: -10%;
+      right: 2%;
+      border: .3em outset orange;
+      background-size: 100% 100%;
+      animation: spin 4s ease-out 0s infinite forwards;
+    }
+    .Terrans {
+      background: url('https://imagizer.imageshack.us/v2/384x384q50/922/YVKUoI.jpg') no-repeat center;
+      border-radius: 50% 50% 1em 1em;
+    }
+    .Zergs {
+      background: url('https://imagizer.imageshack.us/v2/402x439q90/924/444bF5.jpg') no-repeat center;
+      border-radius: 50%;
+    }
+  @keyframes spin {
+    from{transform: rotateY(660deg)}
+    10%{transform: rotateY(0);}
+    11%{transform: translateY(-10%)}
+    13%{transform: translateY(4%)}
+    16%{transform: translateY(-3%)}
+    19%{transform: translateY(0)}
+    100%{transform: rotateY(0)}
+  }
+    /*#click_here {
+      background: rgba(0,0,0,.5);
+      border: .2em solid gold;
+      border-radius: 20%;
+      animation: blink .5s linear 0s  infinite alternate;
+    }*/
+  #Starwing, #Lightbeam {
+    position: absolute;
+  }
+  #Lightbeam {
+    right: -14%;
+    top: -29.5%;
+    transform: scale(.1);
+    animation: flash 2s ease-out 0s infinite alternate;
+  }
+  @keyframes flash {
+    from{transform: scale(2)}
+    30%{transform: scale(.2)}
+  }
+  #Starwing {
+    top: -30%;
+    right: -30%;
+    transform: scale(.2);
+  }
+  #Starwing {
+    animation: zooom 3s ease-in 0s infinite forwards;
+  }
+  @keyframes zooom {
+    from{right:-40%;top: -40%;}
+    to{right:100%;top: 100%;transform: scale(2.2);}
+  }
+  zooom::after {
+
+  }
+    button {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1em;
+    }
+    @keyframes blink {
+      0%{color: black;}
+      100%{color: white;}
+    }
+    input {
+      background: rgba(0, 0, 0, 0.5);
+      font-size: 1em;
+      border: .2em solid silver;
+      height: 20%;
+      font-family: 'Orbitron', sans-serif;
+    }
+    .chat {
+      border-radius: 1em 1em 0 0;
+      border: .1em dotted silver;
+      position: absolute;
+      right: 1%;
+      top: 32%;
+      width: 29%;
+      height: 20%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      margin: 10% 2% 0 0;
+    }
+  .chat:hover {
+    animation: enlargeChat 1s ease-in-out 0s forwards;
+  }
+  @keyframes enlargeChat {
+    from{height: 18%;}
+    to{height: 40%;}
+  }
+    #chat_bar {
+      width: 100%;
+      border-radius: 1em 1em 0 0;
+    }
+    #chat_bar:hover {
+      color: white;
+      background: goldenrod;
+    }
+    #message_field {
+      width: 100%;
+      border-radius: 1em 1em 0 0;
+    }
+    #submit {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30%;
+      line-height: 1.5em;
+      border-radius: 1em;
+      color: gold;
+      font-weight: bold;
+      margin: 3% 1% 0 0;
+      float: right;
+    }
+  #CallistoB {position:relative;
+      float:right;
+      top:32%;
+   }
+    #EuropaB {position:relative;
+      float:right;
+      top:14%;
+     }
+  #GanymedeB {position:relative;
+      float:right;
+      top:24%;
+     }
+    
+  </style>
+
+                                                      <!-- Fin du :CSS -->
+</head>
+                                                      <!-- Notre HTML -->
+<body>
+  <img id="Starwing" src="https://imagizer.imageshack.us/v2/517x388q90/923/BkiHQk.png" alt=":/">
+  <img id="Lightbeam" src="https://imagizer.imageshack.us/v2/384x384q50/924/ChcLrh.png" alt=":/id="starwing" ">
+  <h1>JUPITER IMPACT</h1>
+  <button id="team" title="Thy team"></button>
+<!--   <button id="click_here" title="If you wish to ascend to glory..."> Click here </button> -->
+  <button id="multiplicateur"> Multiplier x1 </button>
+  <div id="score">Score : 0</div>
+
+<div id=score1_Callisto>Score Callisto (Terrans):0</div>
+<div id=score2_Callisto>Score Callisto (Zergs):0</div>
+<BR>
+<div id=score1_Ganymede>Score Ganymède (Terrans):0</div>
+<div id=score2_Ganymede>Score Ganymède(Zergs):0</div>
+<BR>
+<div id=score1_Europa>Score Europa (Terrans):0</div>
+<div id=score2_Europa>Score Europa (Zergs):0</div>
+
+
+  <div class="chat">
+    <form action="/" method="post" id="chat_bar">
+      <input type="text" name="message" id="message_field" placeholder="Your message..." size="50" autofocus />
+      <input type="submit" id="submit" value="Submit" />
+    </form>
+
+    <section id="zone_chat">
+
+    </section>
+  </div>
+
+<button id="clic_Callisto" title="If you wish to ascend to glory..." class="Callisto" oncontextmenu="return monmenu(this)"> Click here </button>
+
+<button id="clic_Europa" title="If you wish to ascend to glory..." class="Europa" oncontextmenu="return monmenu(this)"> Click here </button>
+
+<button id="clic_Ganymede" title="If you wish to ascend to glory..." class="Ganymede" oncontextmenu="return monmenu(this)"> Click here </button>
+
+
+
+ <!-- <div class="Callisto" oncontextmenu="return monmenu(this)"></div>
+  <div class="Europe" oncontextmenu="return monmenu(this)"></div> -->
+
+                                      <!-- JS -->
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+
+                                        // Nos déclarations
+  $clic_Callisto= document.getElementById("clic_Callisto"),
+  $clic_Europa= document.getElementById("clic_Europa"),
+  $clic_Ganymede= document.getElementById("clic_Ganymede"),
+  $multiplicateur = document.getElementById("multiplicateur"),
+  $score = document.getElementById("score"),
+  $team = document.getElementById("team"),
+  $score1_Callisto = document.getElementById("score1_Callisto"),
+  $score2_Callisto=document.getElementById("score2_Callisto"),
+  $score1_Europa = document.getElementById("score1_Europa"),
+  $score2_Europa=document.getElementById("score2_Europa"),
+  $score1_Ganymede = document.getElementById("score1_Ganymede"),
+  $score2_Ganymede=document.getElementById("score2_Ganymede"),
+  score = 0,
+  nbMultiplicateur = 1;
+  var nbFouls=0;
+  // Connexion à socket.io
+  var socket = io.connect('http://10.64.110.238:8080');
+
+
+                                        // Initialisation
+  // On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
+
+  var pseudo = prompt('Would you spell thy name out, traveller?');
+
+  if(pseudo==""){
+    alert("K, get rekt fagget...");
+  }
+  else if (pseudo.indexOf("<script>")!=-1||pseudo.indexOf("<script")!=-1) {
+    alert("Better luck next time, fagget! ;)");
+  }
+  var team = confirm("Which ranks dost thou wish to reinforce, recruit?\nTERRANS or ZERGS?");
+
+    if (team ===false)
+    {
+	team = "TERRANS";
+      $team.classList.add("Terrans");
+      $team.style.display="block";
+      $team.innerHTML="TERRANS";
+      document.title="TERRANS VS ZERGS";
+    }
+    else
+    {
+      team="ZERGS";
+        $team.classList.add("Zergs");
+        $team.style.display="block";
+      $team.innerHTML="ZERGS";
+      document.title="ZERGS VS TERRANS";
+    }
+
+  score2 = score.toString();
+  socket.emit('nouveau_client', pseudo, score2,team);
+  document.title = '#' + pseudo + '# ' + document.title;
+
+  // Quand on reçoit un message, on l'insère dans la page
+  socket.on('message', function(data) {
+    insereMessage( data.pseudo, data.message, data.score, data.team)
+  })
+    socket.on('clic_Callisto', function(team1_score,team2_score) {
+
+     insereScoreCallisto(team1_score,team2_score)})
+
+  //Nouveau score (multiplicateur:
+  socket.on('score', function(data) {
+    insereScore( data.pseudo, data.score, data.team)
+  })
+
+  socket.on('clic_Europa', function(team1_score,team2_score) {
+
+     insereScoreEuropa(team1_score,team2_score)})
+
+
+   socket.on('clic_Ganymede', function(team1_score,team2_score) {
+
+     insereScoreGanymede(team1_score,team2_score)})
+
+
+
+  // Quand un nouveau client se connecte, on affiche l'information
+  socket.on('nouveau_client', function( pseudo,score,team) {
+    $('#zone_chat').prepend('<p><em>[' +team+'] '+ pseudo + ' (score : '+score+') joined the chat!</em></p>');
+
+  })
+  // Ajoute un message dans la page
+  function insereMessage( pseudo, message,scoreA, team) {
+    $('#zone_chat').prepend('<p><strong>[' +team+'] ' + pseudo + ' score ('+scoreA+')</strong> ' + message + '</p>');
+  }
+  //on ajoute le nouveau multi
+  function insereScore( pseudo, message, team) {
+    $('#zone_chat').prepend('<p><strong>[' +team+'] ' + pseudo + '</strong> New multiplier : ' + message + '</p>');
+  }
+
+ function insereScoreCallisto(team1_score,team2_score) {
+
+     $score1_Callisto.innerHTML = "Score Callisto (Terrans): " + team1_score;
+      $score2_Callisto.innerHTML = "Score Callisto (ZERGS): " + team2_score;
+  }
+
+function insereScoreEuropa(team1_score,team2_score) {
+
+     $score1_Europa.innerHTML = "Score Europa (Terrans): " + team1_score;
+      $score2_Europa.innerHTML = "Score Europa (ZERGS): " + team2_score;
+  }
+
+
+function insereScoreGanymede(team1_score,team2_score) {
+
+     $score1_Ganymede.innerHTML = "Score Ganymede (Terrans): " + team1_score;
+      $score2_Ganymede.innerHTML = "Score Ganymede (ZERGS): " + team2_score;
+  }
+
+  //nouveau score
+  socket.on('nouveau_score', function( n_score) {
+    score = n_score;
+
+      afficherScore();
+
+
+  })
+
+  socket.on('nouveau_multi', function(n_multi, n_score) {
+    	score = n_score;
+
+      afficherScore();
+   //on balance le nouveau multi
+
+
+
+      nbMultiplicateur = n_multi;
+      afficherNbMultiplicateur();
+      afficherScore();
+      score2 = nbMultiplicateur.toString();
+      socket.emit('score', score2,team,pseudo);
+
+      insereScore(pseudo,score2,team);
+
+
+  })
+  //JSON: messages, camps, scores par camps
+  //Create decorated div containing input that pops up once the page is done loading.
+  //Requesting pseudo and team choice out of a checkbox.
+
+  // Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page
+  $('#chat_bar').submit(function () {
+    score2 = score.toString();
+    var message = $('#message_field').val();
+    if (message==""||message.indexOf("<script>")!=-1) {
+      nbFouls++; if (nbFouls%3===0) {
+        score=0;
+        alert("Thou hast been punished by the Gods!");
+      }
+      conf=prompt("Might thy desire be to spam my holy galactic website, skrub?");
+      if (conf!="No, master, please!") {//About to make the  meek lose all his freaking damn score, hehe.
+        alert("Solve this riddle and you might be granted access to my kingdom: No, m**t**, *l***e!\nElse, thou shall suffer one terrible fate...");
+        conf=prompt("Therefore, what is thy guess, before thou feelst the power of my wrath, meek?");//Closer to death, huhu.
+        if (conf!="No, master, please!") {
+          score=0;
+          alert("Thou hast been punished by the Gods!");
+        }
+        else {
+          alert("Thou hast been spared by the Gods!");
+        }
+      }
+      else {
+        alert("Thou hast been spared by the Gods!");
+      }
+    }
+    socket.emit('message', message, score2,team); // Transmet le message aux autres
+    insereMessage(pseudo,message, score2,team); // Affiche le message aussi sur notre page
+    $('#message_field').val('').focus(); // Vide la zone de Chat et remet le focus dessus
+    return false; // Permet de bloquer l'envoi "classique" du formulaire*
+  });
+  function afficherScore()
+  {
+    $score.innerHTML = "Score : " + score;
+  }
+  function afficherNbMultiplicateur()
+  {
+    $multiplicateur.innerHTML = "Multiplier x " + nbMultiplicateur + " [ Cost of next purchase : £" + prix() + " ]";
+  }
+
+
+
+  function clic_Callisto()
+  {
+  socket.emit('clic_Callisto',team);
+  console.log('clic emit');
+
+  }
+function clic_Europa()
+  {
+  socket.emit('clic_Europa',team);
+  console.log('clic emit');
+
+  }
+
+function clic_Ganymede()
+  {
+  socket.emit('clic_Ganymede',team);
+  console.log('clic emit');
+
+  }
+
+  function prix()
+  {
+    return 50 * (nbMultiplicateur*nbMultiplicateur);
+  }
+
+  function acheterMultiplicateur()
+  {
+
+    if (score >= prix())
+    {
+
+	socket.emit('nouveau_multi');
+
+    }
+    else
+    {
+      alert("Thy score ist not high enough, thou peasant traveller !");
+    }
+  }
+
+
+
+var xMousePosition = 0;
+var yMousePosition = 0;
+document.onmousemove = function(e)
+{
+xMousePosition = e.clientX + window.pageXOffset;
+yMousePosition = e.clientY + window.pageYOffset;
+};
+
+
+function autoclick(element)
+{
+alert("Autoclick posé");
+}
+
+function autreAction(element)
+{
+alert("Autre action effectué");
+}
+
+function monmenu(element)
+{
+var x = document.getElementById('ctxmenu1');
+if(x) x.parentNode.removeChild(x);
+var d = document.createElement('div');
+d.setAttribute('class', 'ctxmenu');
+d.setAttribute('id', 'ctxmenu1');
+element.parentNode.appendChild(d);
+d.style.left = xMousePosition + "px";
+d.style.top = yMousePosition + "px";
+d.onmouseover = function(e) { this.style.cursor = 'pointer'; }
+d.onclick = function(e) { element.parentNode.removeChild(d); }
+document.body.onclick = function(e) { element.parentNode.removeChild(d); }
+
+
+var p = document.createElement('p');
+d.appendChild(p);
+p.onclick=function() { autoclick(element);};
+p.setAttribute('class', 'ctxline');
+p.innerHTML = "Poser un autoclick";
+
+
+var p2 = document.createElement('p');
+d.appendChild(p2);
+p2.onclick=function() { autreAction(element);};
+p2.setAttribute('class', 'ctxline');
+p2.innerHTML = "Autre action";
+
+return false;
+}
+
+  $clic_Callisto.onclick = clic_Callisto;
+  $clic_Europa.onclick = clic_Europa;
+  $clic_Ganymede.onclick = clic_Ganymede;
+  $multiplicateur.onclick = acheterMultiplicateur;
+  afficherScore();
+  afficherNbMultiplicateur();
+
+
+  </script>
+
+</body>
 </html>
-
