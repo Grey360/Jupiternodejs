@@ -9,218 +9,157 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
   <style>
-
-
-    html {
-      height: 100%;
-      overflow: hidden;
-    }
-    .Callisto {
-      background-color: red;
-      position: absolute;
-      width: 8%;
-      height: 15%;
-      border-radius: 50%;
-      top: 76%;
-      left: 27%;
-      font-size: 18px;
-      opacity: 0.1;
-      cursor: crosshair;
-      background-image: radial-gradient(closest-side ellipse at center, white, red);
-    }
-
-    .Callisto:hover { opacity:0.5;}
-
-    .Europa {
-      background-color: green;
-      position: absolute;
-      width: 8%;
-      height: 15%;
-      border-radius: 50%;
-      top: 31%;
-      left: 43.55%;
-      opacity: 0.1;
-      cursor: crosshair;
-      background-image: radial-gradient(closest-side ellipse at center, white, green);
-    }
-
-    .Europa:hover { opacity:0.5;}
-
-      .Ganymede{
-      background-color: blue;
-      position: absolute;
-      width: 8%;
-      height: 15%;
-      border-radius: 50%;
-      top: 67%;
-      left: 43.55%;
-      opacity: 0.1;
-      cursor: crosshair;
-      background-image: radial-gradient(closest-side ellipse at center, white, blue);
-    }
-
-    .Ganymede:hover { opacity:0.5;}
-
-    #zone_chat strong {
-      color: white;
-      background-color: black;
-    }
-    body {
-      background: black url('http://imageshack.com/a/img924/7558/OTIPkk.jpg') no-repeat center;
-      color: white;
-      font-family: 'Orbitron', sans-serif;
-      height: 100%;
-    }
-    #team {
-      display: none;
-      height: 30%;
-      width: 15%;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.5em;
-      color: orange;
-      position: relative;
-      float: right;
-      z-index: 0;
-      top: -10%;
-      right: 2%;
-      border: .3em outset orange;
-      background-size: 100% 100%;
-      animation: spin 4s ease-out 0s infinite forwards;
-    }
-    .Terrans {
-      background: url('https://imagizer.imageshack.us/v2/384x384q50/922/YVKUoI.jpg') no-repeat center;
-      border-radius: 50% 50% 1em 1em;
-    }
-    .Zergs {
-      background: url('https://imagizer.imageshack.us/v2/402x439q90/924/444bF5.jpg') no-repeat center;
-      border-radius: 50%;
-    }
-  @keyframes spin {
-    from{transform: rotateY(660deg)}
-    10%{transform: rotateY(0);}
-    11%{transform: translateY(-10%)}
-    13%{transform: translateY(4%)}
-    16%{transform: translateY(-3%)}
-    19%{transform: translateY(0)}
-    100%{transform: rotateY(0)}
+  html {
+    height: 100%;
   }
-    /*#click_here {
-      background: rgba(0,0,0,.5);
-      border: .2em solid gold;
-      border-radius: 20%;
-      animation: blink .5s linear 0s  infinite alternate;
-    }*/
-  #Starwing, #Lightbeam {
+  .Callisto {
+    background-color: red;
     position: absolute;
+    width: 8%;
+    height: 15%;
+    border-radius: 50%;
+    top: 76%;
+    left: 27%;
+    font-size: 18px;
+    opacity: 0.1;
+    cursor: crosshair;
+    background-image: radial-gradient(closest-side ellipse at center, white, red);
   }
-  #Lightbeam {
-    right: -14%;
-    top: -29.5%;
-    transform: scale(.1);
-    animation: flash 2s ease-out 0s infinite alternate;
-  }
-  @keyframes flash {
-    from{transform: scale(2)}
-    30%{transform: scale(.2)}
-  }
-  #Starwing {
-    top: -30%;
-    right: -30%;
-    transform: scale(.2);
-  }
-  #Starwing {
-    animation: zooom 3s ease-in 0s infinite forwards;
-  }
-  @keyframes zooom {
-    from{right:-40%;top: -40%;}
-    to{right:100%;top: 100%;transform: scale(2.2);}
-  }
-  zooom::after {
 
+  .Callisto:hover { opacity:0.5;}
+
+  .Europa {
+    background-color: green;
+    position: absolute;
+    width: 8%;
+    height: 15%;
+    border-radius: 50%;
+    top: 31%;
+    left: 43.55%;
+    opacity: 0.1;
+    cursor: crosshair;
+    background-image: radial-gradient(closest-side ellipse at center, white, green);
   }
-    button {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.1em;
-    }
-    @keyframes blink {
-      0%{color: black;}
-      100%{color: white;}
-    }
-    input {
-      background: rgba(0, 0, 0, 0.5);
-      font-size: 1em;
-      border: .2em solid silver;
-      height: 20%;
-      font-family: 'Orbitron', sans-serif;
-    }
-    .chat {
-      border-radius: 1em 1em 0 0;
-      border: .1em dotted silver;
-      position: absolute;
-      right: 1%;
-      top: 32%;
-      width: 29%;
-      height: 20%;
-      overflow-y: scroll;
-      overflow-x: hidden;
-      margin: 10% 2% 0 0;
-    }
-  .chat:hover {
-    animation: enlargeChat 1s ease-in-out 0s forwards;
+
+  .Europa:hover { opacity:0.5;}
+
+    .Ganymede{
+    background-color: blue;
+    position: absolute;
+    width: 8%;
+    height: 15%;
+    border-radius: 50%;
+    top: 67%;
+    left: 43.55%;
+    opacity: 0.1;
+    cursor: crosshair;
+    background-image: radial-gradient(closest-side ellipse at center, white, blue);
   }
-  @keyframes enlargeChat {
-    from{height: 18%;}
-    to{height: 40%;}
+
+  .Ganymede:hover { opacity:0.5;}
+
+  #zone_chat strong {
+    color: white;
+    background-color: black;
   }
-    #chat_bar {
-      width: 100%;
-      border-radius: 1em 1em 0 0;
-    }
-    #chat_bar:hover {
-      color: white;
-      background: goldenrod;
-    }
-    #message_field {
-      width: 100%;
-      border-radius: 1em 1em 0 0;
-    }
-    #submit {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 30%;
-      line-height: 1.5em;
-      border-radius: 1em;
-      color: gold;
-      font-weight: bold;
-      margin: 3% 1% 0 0;
-      float: right;
-    }
-  #CallistoB {position:relative;
-      float:right;
-      top:32%;
+  body {
+    background: black url('http://imageshack.com/a/img924/7558/OTIPkk.jpg') no-repeat center;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    height: 100%;
+  }
+  #team {
+    display: none;
+    background: url('https://imagizer.imageshack.us/v2/402x439q90/924/444bF5.jpg') no-repeat center;
+    background-size: 100% 100%;
+    height: 30%;
+    width: 15%;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5em;
+    color: orange;
+    position: relative;
+    float: right;
+    border-radius: 50%;
+    z-index: 0;
+    right: 0;
+  }
+  /*#click_here {
+    background: rgba(0,0,0,.5);
+    border: .2em solid gold;
+    border-radius: 20%;
+    animation: blink .5s linear 0s  infinite alternate;
+  }*/
+  button {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1em;
+  }
+  @keyframes blink {
+    0%{color: black;}
+    100%{color: white;}
+  }
+  input {
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 1em;
+    border: .2em solid silver;
+    height: 20%;
+    font-family: 'Orbitron', sans-serif;
+  }
+  .chat {
+    position: absolute;
+    right: 1%;
+    top: 32%;
+    width: 29%;
+    height: 50%;
+    overflow: scroll;
+    margin-right: .5%;
+  }
+  #chat_bar {
+    width: 100%;
+  }
+  #chat_bar:hover {
+    color: white;
+    background: goldenrod;
+  }
+  #message_field {
+    width: 100%;
+  }
+  #submit {
+    width: 40%;
+    color: gold;
+    margin: 3% 0 0 0;
+    float: right;
+  }
+
+#CallistoB {position:relative;
+    float:right;
+    top:32%;
+ }
+
+  #EuropaB {position:relative;
+    float:right;
+    top:14%;
    }
-    #EuropaB {position:relative;
-      float:right;
-      top:14%;
-     }
-  #GanymedeB {position:relative;
-      float:right;
-      top:24%;
-     }
-    
+
+#GanymedeB {position:relative;
+    float:right;
+    top:24%;
+   }
+
+
+
+
   </style>
 
                                                       <!-- Fin du :CSS -->
 </head>
                                                       <!-- Notre HTML -->
 <body>
-  <img id="Starwing" src="https://imagizer.imageshack.us/v2/517x388q90/923/BkiHQk.png" alt=":/">
-  <img id="Lightbeam" src="https://imagizer.imageshack.us/v2/384x384q50/924/ChcLrh.png" alt=":/id="starwing" ">
   <h1>JUPITER IMPACT</h1>
   <button id="team" title="Thy team"></button>
 <!--   <button id="click_here" title="If you wish to ascend to glory..."> Click here </button> -->
   <button id="multiplicateur"> Multiplier x1 </button>
+  <div id=auto>Coût du premier porte Aeronef: 200</div>
+  <div id=croiseur>Coût du premier croiseur: 400</div>
   <div id="score">Score : 0</div>
 
 <div id=score1_Callisto>Score Callisto (Terrans):0</div>
@@ -244,11 +183,11 @@
     </section>
   </div>
 
-<button id="clic_Callisto" title="If you wish to ascend to glory..." class="Callisto" oncontextmenu="return monmenu(this)"> Click here </button>
+<button id="clic_Callisto" title="If you wish to ascend to glory..." class="Callisto" oncontextmenu="return menuCallisto(this)"> Click here </button>
 
-<button id="clic_Europa" title="If you wish to ascend to glory..." class="Europa" oncontextmenu="return monmenu(this)"> Click here </button>
+<button id="clic_Europa" title="If you wish to ascend to glory..." class="Europa" oncontextmenu="return menuEuropa(this)"> Click here </button>
 
-<button id="clic_Ganymede" title="If you wish to ascend to glory..." class="Ganymede" oncontextmenu="return monmenu(this)"> Click here </button>
+<button id="clic_Ganymede" title="If you wish to ascend to glory..." class="Ganymede" oncontextmenu="return menuGanymede(this)"> Click here </button>
 
 
 
@@ -265,6 +204,8 @@
   $clic_Europa= document.getElementById("clic_Europa"),
   $clic_Ganymede= document.getElementById("clic_Ganymede"),
   $multiplicateur = document.getElementById("multiplicateur"),
+  $auto = document.getElementById("auto"),
+  $croiseur = document.getElementById("croiseur"),
   $score = document.getElementById("score"),
   $team = document.getElementById("team"),
   $score1_Callisto = document.getElementById("score1_Callisto"),
@@ -275,9 +216,13 @@
   $score2_Ganymede=document.getElementById("score2_Ganymede"),
   score = 0,
   nbMultiplicateur = 1;
+  nbAuto =0;
+  nbCroiseur=0;
+  var myVar;
+
   var nbFouls=0;
   // Connexion à socket.io
-  var socket = io.connect('http://10.64.110.238:8080');
+  var socket = io.connect('localhost:8080');
 
 
                                         // Initialisation
@@ -296,17 +241,17 @@
     if (team ===false)
     {
 	team = "TERRANS";
-      $team.classList.add("Terrans");
-      $team.style.display="block";
       $team.innerHTML="TERRANS";
+      $team.style.background="url(https://imagizer.imageshack.us/v2/605x605q90/922/YVKUoI.jpg)";
+      $team.style.backgroundSize="100% 100%";
+      $team.style.display="block";
       document.title="TERRANS VS ZERGS";
     }
     else
     {
       team="ZERGS";
-        $team.classList.add("Zergs");
-        $team.style.display="block";
       $team.innerHTML="ZERGS";
+      $team.style.display="block";
       document.title="ZERGS VS TERRANS";
     }
 
@@ -331,7 +276,7 @@
 
      insereScoreEuropa(team1_score,team2_score)})
 
-
+ 
    socket.on('clic_Ganymede', function(team1_score,team2_score) {
 
      insereScoreGanymede(team1_score,team2_score)})
@@ -379,6 +324,20 @@ function insereScoreGanymede(team1_score,team2_score) {
 
 
   })
+
+    socket.on('nouveau_auto', function( n_auto) {
+    nbAuto = n_auto;
+    afficherNbAuto();
+
+      
+    })
+
+    socket.on('nouveau_croiseur', function( n_croiseur) {
+    nbCroiseur = n_croiseur;
+    afficherNbCroiseur();
+
+      
+    })
 
   socket.on('nouveau_multi', function(n_multi, n_score) {
     	score = n_score;
@@ -441,6 +400,15 @@ function insereScoreGanymede(team1_score,team2_score) {
     $multiplicateur.innerHTML = "Multiplier x " + nbMultiplicateur + " [ Cost of next purchase : £" + prix() + " ]";
   }
 
+    function afficherNbAuto()
+  {
+    $auto.innerHTML = + nbAuto + " porteAeronefs déployé(s). Coût du prochain :" + (200+(nbAuto*nbAuto*100));
+  }
+
+    function afficherNbCroiseur()
+  {
+    $croiseur.innerHTML = + nbCroiseur + " croiseurs déployé(s). Coût du prochain :" + (400+(nbCroiseur*nbCroiseur*200));
+  }
 
 
   function clic_Callisto()
@@ -494,17 +462,14 @@ yMousePosition = e.clientY + window.pageYOffset;
 };
 
 
-function autoclick(element)
-{
-alert("Autoclick posé");
-}
 
 function autreAction(element)
 {
 alert("Autre action effectué");
 }
 
-function monmenu(element)
+
+function menuCallisto(element)
 {
 var x = document.getElementById('ctxmenu1');
 if(x) x.parentNode.removeChild(x);
@@ -521,19 +486,85 @@ document.body.onclick = function(e) { element.parentNode.removeChild(d); }
 
 var p = document.createElement('p');
 d.appendChild(p);
-p.onclick=function() { autoclick(element);};
+p.onclick=function() { autoclic_C(element);};
 p.setAttribute('class', 'ctxline');
 p.innerHTML = "Poser un autoclick";
 
 
 var p2 = document.createElement('p');
 d.appendChild(p2);
-p2.onclick=function() { autreAction(element);};
+p2.onclick=function() { croiseur_C(element);};
 p2.setAttribute('class', 'ctxline');
-p2.innerHTML = "Autre action";
+p2.innerHTML = "Déployer croiseur";
 
 return false;
 }
+
+function menuEuropa(element)
+{
+var x = document.getElementById('ctxmenu1');
+if(x) x.parentNode.removeChild(x);
+var d = document.createElement('div');
+d.setAttribute('class', 'ctxmenu');
+d.setAttribute('id', 'ctxmenu1');
+element.parentNode.appendChild(d);
+d.style.left = xMousePosition + "px";
+d.style.top = yMousePosition + "px";
+d.onmouseover = function(e) { this.style.cursor = 'pointer'; }
+d.onclick = function(e) { element.parentNode.removeChild(d); }
+document.body.onclick = function(e) { element.parentNode.removeChild(d); }
+
+
+var p = document.createElement('p');
+d.appendChild(p);
+p.onclick=function() { autoclic_E(element);};
+p.setAttribute('class', 'ctxline');
+p.innerHTML = "Poser un autoclick";
+
+
+var p2 = document.createElement('p');
+d.appendChild(p2);
+p2.onclick=function() { croiseur_E(element);};
+p2.setAttribute('class', 'ctxline');
+p2.innerHTML = "Déployer croiseur";
+
+return false;
+
+}
+
+function menuGanymede(element)
+{
+var x = document.getElementById('ctxmenu1');
+if(x) x.parentNode.removeChild(x);
+var d = document.createElement('div');
+d.setAttribute('class', 'ctxmenu');
+d.setAttribute('id', 'ctxmenu1');
+element.parentNode.appendChild(d);
+d.style.left = xMousePosition + "px";
+d.style.top = yMousePosition + "px";
+d.onmouseover = function(e) { this.style.cursor = 'pointer'; }
+d.onclick = function(e) { element.parentNode.removeChild(d); }
+document.body.onclick = function(e) { element.parentNode.removeChild(d); }
+
+
+var p = document.createElement('p');
+d.appendChild(p);
+p.onclick=function() { autoclic_G(element);};
+p.setAttribute('class', 'ctxline');
+p.innerHTML = "Poser un autoclick";
+
+
+var p2 = document.createElement('p');
+d.appendChild(p2);
+p2.onclick=function() { croiseur_G(element);};
+p2.setAttribute('class', 'ctxline');
+p2.innerHTML = "Déployer croiseur";
+
+return false;
+}
+
+
+
 
   $clic_Callisto.onclick = clic_Callisto;
   $clic_Europa.onclick = clic_Europa;
@@ -541,6 +572,54 @@ return false;
   $multiplicateur.onclick = acheterMultiplicateur;
   afficherScore();
   afficherNbMultiplicateur();
+
+
+function autoclic_C(element) {
+
+     socket.emit('auto_C',team);
+
+}
+function autoclic_G(element) {
+
+     socket.emit('auto_G',team);
+
+}
+function autoclic_E(element) {
+
+     socket.emit('auto_E',team);
+
+}
+function croiseur_G(element) {
+
+     socket.emit('croiseur_G',team);
+
+}
+function croiseur_C(element) {
+
+     socket.emit('croiseur_C',team);
+
+}
+function croiseur_E(element) {
+
+     socket.emit('croiseur_E',team);
+
+}
+
+$multiplicateur.onclick = acheterMultiplicateur;
+afficherScore();
+afficherNbMultiplicateur();
+
+$multiplicateur.onclick = acheterMultiplicateur;
+afficherScore();
+afficherNbMultiplicateur();
+
+
+
+$multiplicateur.onclick = acheterMultiplicateur;
+afficherScore();
+afficherNbMultiplicateur();
+
+
 
 
   </script>
